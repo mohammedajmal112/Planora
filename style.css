@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #202630;
+}
+
+nav {
+    background-color: #2D333D;
+    width: 98%;
+    height: 65px;
+    border-radius: 20px;
+    margin: 15px auto;
+    padding: 0 22px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #f3f5f8;
+    text-decoration: none;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 36px;
+    flex: none;
+}
+
+.brand-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.main-section-container {
+    width: 60%;
+    height: 82vh;
+    margin: 35px 50px;
+    padding: 18px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.grid-box {
+    min-width: 0;
+    border-radius: 12px;
+    background-color: #2D333D;
+    box-shadow: 0 4px 14px rgb(32 38 48 / 8%);
+}
+
+.grid-box-wide {
+    grid-column: 1 / -1;
+}
+
+.main-sidebar-container {
+    width: 32%;
+    height: 82vh;
+    background-color: aliceblue;
+    margin: 35px 0px;
+}
+
+main {
+    display: flex;
+}
+
+.current-time {
+    color: white;
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 130px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.weather-card {
+    background-color: rgb(20, 110, 237);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(16px, 3vh, 30px);
+}
+
+.current-climate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(14px, 3vw, 30px);
+    color: #f3f5f8;
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+}
+
+.weather-icon {
+    width: clamp(200px, 12vw, 140px);
+    height: auto;
+    flex: none;
+}
+
+.weather-details {
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.weather-details h2 {
+    margin: 0;
+    color: #f3f5f8;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    font-weight: 400;
+}
+
+.weather-details h2 + h2 {
+    margin-top: 8px;
+    color: #c5c9d0;
+    font-size: clamp(1.35rem, 2.5vw, 2rem);
+}
