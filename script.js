@@ -1,7 +1,8 @@
-const API_KEY = "c7e2c84bc9a37785c79cc1d4156247e6";
-
 const feedList = document.querySelector("#feed-list");
 const feedStatus = document.querySelector("#feed-status");
+const NEWS_URL = location.protocol === "chrome-extension:"
+    ? "https://mohammedajmal112.github.io/Planora/news.json"
+    : "news.json";
 
 function getHttpUrl(value) {
     if (typeof value !== "string" || !value) return "";
@@ -52,24 +53,16 @@ function createFeedItem(article) {
 async function loadHeadlines() {
     feedList.replaceChildren();
 
-    const params = new URLSearchParams({
-        category: "technology",
-        lang: "en",
-        country: "in",
-        max: "10",
-        apikey: API_KEY,
-    });
-
     try {
-        const response = await fetch(`https://gnews.io/api/v4/top-headlines?${params}`);
+        const response = await fetch(NEWS_URL, { cache: "no-store" });
         if (!response.ok) {
-            throw new Error(`News request failed with status ${response.status}`);
+            throw new Error(`News data request failed with status ${response.status}`);
         }
 
         const data = await response.json();
         const articles = Array.isArray(data) ? data : data.articles;
         if (!Array.isArray(articles)) {
-            throw new Error("The news response did not contain an articles array.");
+            throw new Error("The news data did not contain an articles array.");
         }
 
         const validArticles = articles.filter(
@@ -81,7 +74,7 @@ async function loadHeadlines() {
             : "No headlines are available right now.";
     } catch (error) {
         console.error("Could not load news:", error);
-        feedStatus.textContent = "Could not load headlines. Check your API key and try again.";
+        feedStatus.textContent = "Could not load headlines. The news cache may not have been generated yet.";
     }
 }
 

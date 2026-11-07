@@ -14,9 +14,9 @@
   },
   "host_permissions": [
     "https://api.open-meteo.com/*",
-    "https://gnews.io/*"
+    "https://mohammedajmal112.github.io/*"
   ],
   "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' data: https:;"
+    "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' data: https:; connect-src 'self' https://api.open-meteo.com https://mohammedajmal112.github.io;"
   }
 }
