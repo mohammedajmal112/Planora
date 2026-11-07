@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #202630;
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 nav {
@@ -60,10 +61,14 @@ nav {
 }
 
 .main-sidebar-container {
-    width: 32%;
-    height: 82vh;
-    background-color: aliceblue;
-    margin: 35px 0px;
+    width: 33%;
+    height: 78.5vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: #2D333D;
+    margin-top: 2.9%;
+    margin-left: -2.5%;
+    border-radius: 15px;
 }
 
 main {
@@ -71,9 +76,13 @@ main {
 }
 
 .current-time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
     color: white;
-    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 130px;
+    font-size: clamp(4rem, 10vw, 8rem);
     text-align: center;
     font-weight: 500;
 }
@@ -93,21 +102,20 @@ main {
     justify-content: center;
     gap: clamp(14px, 3vw, 30px);
     color: #f3f5f8;
-    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 300;
+    margin-top: 10%;
 }
 
 .weather-icon {
-    width: clamp(200px, 12vw, 140px);
-    height: auto;
+    font-size: clamp(4rem, 8vw, 7rem);
+    line-height: 1;
     flex: none;
 }
 
 .weather-details {
     margin-bottom: 10px;
     text-align: center;
-    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .weather-details h2 {
@@ -121,4 +129,216 @@ main {
     margin-top: 8px;
     color: #c5c9d0;
     font-size: clamp(1.35rem, 2.5vw, 2rem);
+}
+
+.location-button {
+    padding: 8px 14px;
+    border: 1px solid rgb(255 255 255 / 55%);
+    border-radius: 8px;
+    background: transparent;
+    color: #f3f5f8;
+    font: inherit;
+    cursor: pointer;
+}
+
+.location-button:hover:not(:disabled) {
+    background: rgb(255 255 255 / 14%);
+}
+
+.location-button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.weather-status {
+    min-height: 1em;
+    margin: 0;
+    color: #f3f5f8;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.todo-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding: 24px 30px;
+    overflow: hidden;
+}
+
+.todo-title {
+    flex: none;
+    margin: 0 0 22px;
+    color: white;
+    font-size: 1.8rem;
+    font-weight:normal;
+}
+
+.todo-list {
+    display: grid;
+    flex: 1;
+    min-height: 0;
+    gap: 14px;
+    margin: 0 0 16px;
+    padding: 0;
+    list-style: none;
+    overflow-y: auto;
+}
+
+.todo-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.todo-list label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    color: #f3f5f8;
+    font-size: 1.55rem;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.todo-list input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    flex: none;
+    margin: 0;
+    accent-color: #146eed;
+    cursor: pointer;
+}
+
+.todo-text {
+    overflow-wrap: anywhere;
+}
+
+.todo-text.is-complete {
+    color: #a7adb7;
+    text-decoration: line-through;
+}
+
+.todo-actions {
+    display: flex;
+    flex: none;
+    gap: 8px;
+}
+
+.todo-actions button,
+.todo-form button,
+.todo-list li > button,
+.todo-list li > input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #59616e;
+    border-radius: 8px;
+    background: #2a3039;
+    color: #f3f5f8;
+    font: inherit;
+}
+
+.todo-actions button,
+.todo-form button,
+.todo-list li > button {
+    cursor: pointer;
+}
+
+.todo-actions button:hover,
+.todo-form button:hover,
+.todo-list li > button:hover {
+    background: #3a424e;
+}
+
+.todo-list li > input[type="text"] {
+    min-width: 0;
+    flex: 1;
+}
+
+.todo-form {
+    display: flex;
+    flex: none;
+    gap: 10px;
+}
+
+.todo-form input[type="text"] {
+    width: 100%;
+    min-width: 0;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    border: 1px solid #59616e;
+    border-radius: 10px;
+    background: #2a3039;
+    color: #f3f5f8;
+    font: inherit;
+}
+
+.todo-form input[type="text"]::placeholder {
+    color: #c5c9d0;
+    font-size: x-large;
+    font-weight:normal;
+}
+
+.todo-form input[type="text"]:focus,
+.todo-list li > input[type="text"]:focus {
+    outline: 2px solid #146eed;
+    outline-offset: 2px;
+}
+
+.todo-status {
+    flex: none;
+    margin: 0 0 8px;
+    color: #f3f5f8;
+}
+
+.feed-reader {
+    color: white;
+    margin: 30px 30px;
+    font-weight:normal;
+}
+
+.feed-item {
+    display: flex;
+    gap: 3%;
+    margin: 20px 30px;
+    color: white;
+}
+
+.feed-item img {
+    width: 70px;
+    height: 70px;
+    flex: none;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.feed-item > div:last-child {
+    flex: 1;
+    min-width: 0;
+}
+
+.feed-title {
+    display: block;
+    margin: 10px 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #f3f5f8;
+    text-decoration: none;
+}
+
+a.feed-title:hover {
+    text-decoration: underline;
+}
+
+.feed-author {
+    display: inline-block;
+    margin-top: 2%;
+    color: #c5c9d0;
+}
+
+.feed-status {
+    margin: 0 30px;
+    color: #c5c9d0;
 }
